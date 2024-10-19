@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4">Welcome to User Post Platform</h1>
+    <p>Please register or log in to start posting.</p>
+
+    <!-- Show Register button only if the user is not authenticated -->
+    {% if not user.is_authenticated %}
+        <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+    {% endif %}
+    
+    <!-- Always show the View Posts button -->
+    <a href="{% url 'post_list' %}" class="btn btn-secondary">View Posts</a>
+</div>
+{% endblock %}
